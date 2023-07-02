@@ -4,10 +4,9 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="stylesheet"
-      href="{{url_for('static',filename= 'css/main.css')}}"
-    />
+    
+    <link rel="stylesheet" href="{{url_for('static',filename= 'css/main.css')}}" />
+    
     <title>{% block title %}{% endblock title %} - Scissor</title>
   </head>
   <body>
@@ -15,7 +14,7 @@
       <div class="logo-container">
         <a href="{{url_for('index')}}">
           <img
-            src="{{url_for('static',filename= 'scissor-logo/default.png')}}"
+            src="{{url_for('static',filename= 'cndnse-logo/default.png')}}"
             alt="Logo"
             width="180"
             height="60"

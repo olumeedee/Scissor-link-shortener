@@ -150,7 +150,7 @@ def analytics(short_url):
     return render_template('404.html')
     
 
-@app.route('/login', methods=['GET', 'POST'])
+@app.route('/login', methods=['GET','POST'])
 def login():
     if current_user.is_authenticated:
         return redirect(url_for('index'))

@@ -15,7 +15,10 @@ load_dotenv()
 
 base_dir = os.path.dirname(os.path.realpath(__file__))
 
-app.config["SQLALCHEMY_DATABASE_URI"]='sqlite:///' + os.path.join(base_dir,'cndsn2.db')
+uri = os.environ.get('DATABASE_URL')
+
+# app.config["SQLALCHEMY_DATABASE_URI"]='sqlite:///' + os.path.join(base_dir,'cndsn2.db')
+app.config['SQLALCHEMY_DATABASE_URI'] = uri
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY')
 app.config['CACHE_TYPE'] = 'SimpleCache'
