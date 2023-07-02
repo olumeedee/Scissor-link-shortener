@@ -10,18 +10,18 @@ class User(db.Model, UserMixin):
     last_name = db.Column(db.String(255), nullable=False)
     email = db.Column(db.String(255), nullable=False, unique=True)
     password_hash = db.Column(db.Text(), nullable=False)
-    urls = db.relationship('url', backref='user', lazy=True)
+    urls = db.relationship('Url', backref='user', lazy=True)
 
     def __repr__(self):
         return f"User <{self.username}>"
     
-class url(db.Model):
+class Url(db.Model):
     id = db.Column(db.Integer(), primary_key=True)
     long_url = db.Column(db.String(255), nullable=False, unique=True)
     short_url = db.Column(db.String(255), nullable=False, unique=True)
     custom_url = db.Column(db.String(255), nullable=False, unique=True)
     clicks = db.Column(db.Integer(), nullable=False)
-    created_at = db.Column(db.DateTime(), nullable=False, default=datetime.utcnow)
+    created_at = db.Column(db.DateTime(), nullable=False,server_default=db.func.now())
     user_id = db.Column(db.Integer(), db.ForeignKey('user.id'), nullable=False)
 
     def __repr__(self):

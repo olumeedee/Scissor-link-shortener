@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% block title %}Link Analytics{% endblock title %}
+{% block content %}
+{% if current_user.is_authenticated %}
+  {% if url %}
+    <section class="container analytics-container">
+      <div class="card analytics-card">
+        <div class="card-body">
+          <img class="card-qrcode" src="{{ url_for('generate_qr_code_link', short_url=Url.short_url) }}" alt="QR Code">
+          <br>
+          <a href="{{ url_for('generate_qr_code_link', short_url=Url.short_url) }}" download="qrcode image">
+            <button class="button">Download QR Code</button>
+          </a>
+          <hr>
+          <small>
+            Created: {{Url.created_at.strftime('%B %d, %Y')}} || Clicks: {{Url.clicks}}
+          </small>
+          <p>
+            Original Link: <br>
+            <a href="{{Url.long_url}}" target="_blank">{{Url.long_url}}</a>
+          </p>
+          <p>
+            Shortened Link: <br>
+            <a href="{{url_for('redirect_link', short_url=Url.short_url)}}" target="_blank">{{host}}{{Url.short_url}}</a>
+          </p>
+          <a href="{{ url_for('update', short_url=Url.short_url) }}">
+            <button class="button">Edit Link</button>
+          </a>
+          <a href="{{ url_for('delete', short_url=Url.short_url) }}">
+            <button class="button">Delete Link</button>
+          </a>
+        </div>
+      </div>
+  {% else %}
+    <small>
+      This link does not exist (yet). <a href="{{url_for('index')}}">Create One</a>
+    </small>
+  {% endif %}
+{% else %}
+  <small>
+    <a href="{{url_for('login')}}">Log in</a> to see link stats
+  </small>
+{% endif %}
+{% endblock content %}
