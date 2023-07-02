@@ -30,7 +30,7 @@ This tool can be accessed via the deployed site or a local copy of the project.
 
 ### Live Link
 
-Deployed site: [sciz.site](https://www.cndnse.me) - hosted via [render](https://www.render.com) 
+Deployed site: [cndnse.me](https://www.cndnse.me) - hosted via [render](https://www.render.com) 
 
 ### Localhost
 
