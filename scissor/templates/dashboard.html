@@ -2,32 +2,32 @@
 {% block title %}Dashboard{% endblock title %}
 {% block content %}
 {% if current_user.is_authenticated %}
-  {% if urls %}
+  {% if links %}
     <section class="dashboard">
-      {% for url in urls %}
+      {% for link in links %}
         <div class="card">
           <div class="card-body">
-            <img class="card-qrcode" src="{{ url_for('generate_qr_code_link', short_url=url.short_url) }}" alt="QR Code">
+            <img class="card-qrcode" src="{{ url_for('generate_qr_code_link', short_url=link.short_url) }}" alt="QR Code">
             <br>
-            <a href="{{ url_for('generate_qr_code_link', short_url=url.short_url) }}" download="qrcode image">
+            <a href="{{ url_for('generate_qr_code_link', short_url=link.short_url) }}" download="qrcode image">
               <button class="btn btn-primary">Download QR Code</button>
             </a>
             <hr>
             <small>
-              Created: {{url.created_at.strftime('%B %d, %Y')}} || Clicks: {{url.clicks}}
+              Created: {{link.created_at.strftime('%B %d, %Y')}} || Clicks: {{link.clicks}}
             </small>
             <p>
               Original Link: <br>
-              <a href="{{url.long_url}}" target="_blank">{{url.long_url}}</a>
+              <a href="{{link.long_url}}" target="_blank">{{link.long_url}}</a>
             </p>
             <p>
               Shortened Link: <br>
-              <a href="{{url_for('redirect_link', short_url=url.short_url)}}" target="_blank">{{host}}{{url.short_url}}</a>
+              <a href="{{url_for('redirect_link', short_url=link.short_url)}}" target="_blank">{{host}}{{link.short_url}}</a>
             </p>
-            <a href="{{ url_for('update', short_url=url.short_url) }}">
+            <a href="{{ url_for('update', short_url=link.short_url) }}">
               <button class="btn btn-secondary">Edit Link</button>
             </a>
-            <a href="{{ url_for('delete', short_url=url.short_url) }}">
+            <a href="{{ url_for('delete', short_url=link.short_url) }}">
               <button class="btn btn-danger">Delete Link</button>
             </a>
           </div>

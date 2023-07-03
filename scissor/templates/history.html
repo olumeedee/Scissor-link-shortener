@@ -4,7 +4,7 @@
 
 {% block content %}
 <section class="container">
-  {% if urls %}
+  {% if links %}
     <div class="table-wrapper">
       <table class="table">
         <thead>
@@ -17,13 +17,13 @@
           </tr>
         </thead>
         <tbody>
-          {% for url in urls %}
+          {% for link in links %}
             <tr>
-              <td><a href="{{ url_for('redirect_link', short_url=url.short_url) }}" target="_blank">{{ host }}{{ url.short_url }}</a></td>
-              <td><a href="{{ url.long_url }}" target="_blank">{{ url.long_url }}</a></td>
-              <td><a href="{{ url_for('analytics', short_url=url.short_url) }}">Analytics</a></td>
-              <td><a href="{{ url_for('update', short_url=url.short_url) }}">Edit</a></td>
-              <td><a href="{{ url_for('delete', short_url=url.short_url) }}">Delete</a></td>
+              <td><a href="{{ url_for('redirect_link', short_url=link.short_url) }}" target="_blank">{{ host }}{{link.short_url }}</a></td>
+              <td><a href="{{ link.long_url }}" target="_blank">{{ link.long_url }}</a></td>
+              <td><a href="{{ url_for('analytics', short_url=link.short_url) }}">Analytics</a></td>
+              <td><a href="{{ url_for('update', short_url=link.short_url) }}">Edit</a></td>
+              <td><a href="{{ url_for('delete', short_url=link.short_url) }}">Delete</a></td>
             </tr>
           {% endfor %}
         </tbody>
