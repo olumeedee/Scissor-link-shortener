@@ -4,34 +4,56 @@
 {% if current_user.is_authenticated %}
   {% if link %}
     <section class="container analytics-container">
-      <div class="card analytics-card">
-        <div class="card-body">
-          <img class="card-qrcode" src="{{ url_for('generate_qr_code_link', short_url=link.short_url) }}" alt="QR Code">
-          <br>
-          <a href="{{ url_for('generate_qr_code_link', short_url=link.short_url) }}" download="qrcode image">
-            <button class="btn btn-primary">Download QR Code</button>
-          </a>
-          <hr>
-          <small>
-            Created: {{link.created_at.strftime('%B %d, %Y')}} || Clicks: {{link.clicks}}
-          </small>
-          <p>
-            Original Link: <br>
-            <a href="{{link.long_url}}" target="_blank">{{link.long_url}}</a>
-          </p>
-          <p>
-            Shortened Link: <br>
-            <a href="{{url_for('redirect_link', short_url=link.short_url)}}" target="_blank">{{host}}{{link.short_url}}</a>
-          </p>
-          <a href="{{ url_for('update', short_url=link.short_url) }}">
-            <button class="btn btn-secondary">Edit Link</button>
-          </a>
-          <a href="{{ url_for('delete', short_url=link.short_url) }}">
-            <button class="btn btn-danger">Delete Link</button>
-          </a>
+      <div class="card-horizontal">
+        <div class="row g-0">
+          <div class="col-md-4">
+            <img class="card-qrcode" src="{{ url_for('generate_qr_code_link', short_url=link.short_url) }}" alt="QR Code">
+            <a href="{{ url_for('generate_qr_code_link', short_url=link.short_url) }}" download="qrcode image">
+              <button class="btn btn-primary mt-2">Download QR Code</button>
+            </a>
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <hr>
+              <small>
+                Created: {{link.created_at.strftime('%B %d, %Y')}} || Clicks: {{link.clicks}}
+              </small>
+              <p>
+                Original Link: <br>
+                <a href="{{link.long_url}}" target="_blank">{{link.long_url}}</a>
+              </p>
+              <p>
+                Shortened Link: <br>
+                <a href="{{url_for('redirect_link', short_url=link.short_url)}}" target="_blank">{{host}}{{link.short_url}}</a>
+              </p>
+              <a href="{{ url_for('update', short_url=link.short_url) }}" class="btn btn-secondary">Edit Link</a>
+              <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal">Delete Link</button>
+            </div>
+          </div>
         </div>
       </div>
     </section>
+
+    <!-- Delete Modal -->
+    <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="deleteModalLabel">Confirm Deletion</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            <hr>
+          </div>
+          <div class="modal-body">
+            <p>Are you sure you want to delete this link?</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+            <a href="{{ url_for('delete', short_url=link.short_url) }}" class="btn btn-danger">Delete</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End Delete Modal -->
   {% else %}
     <small>
       This link does not exist (yet). <a href="{{url_for('index')}}">Create One</a>
