@@ -156,10 +156,10 @@ def login():
         return redirect(url_for('index'))
 
     if request.method == 'POST':
-        email = request.form.get('email')
+        username_email = request.form.get('username_email')
         password = request.form.get('password')
 
-        user = User.query.filter_by(email=email).first()
+        user = User.query.filter((User.email == username_email) | (User.username == username_email)).first()
 
         if user:
         
