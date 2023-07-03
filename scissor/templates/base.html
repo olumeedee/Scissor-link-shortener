@@ -1,55 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css') }}">
     
-    <link rel="stylesheet" href="{{url_for('static',filename= 'css/main.css')}}" />
-    
-    <title>{% block title %}{% endblock title %} - Scissor</title>
-  </head>
-  <body>
-    <header>
-      <div class="logo-container">
-        <a href="{{url_for('index')}}">
-          <img
-            src="{{url_for('static',filename= 'cndnse-logo/default.png')}}"
-            alt="Logo"
-            width="180"
-            height="60"
-            class="header-logo"
-          />
+  <title>{% block title %}{% endblock title %} - Scissor</title>
+</head>
+<body>
+  <header class="site-header">
+    <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top">>
+      <div class="container">
+        <a class="navbar-brand" href="{{ url_for('index') }}">
+          <img src="{{ url_for('static', filename='cndnse-logo/vector/isolated-monochrome-white.svg') }}" alt="Logo" width="180" height="50" class="header-logo" />
         </a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="{{ url_for('index') }}">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{ url_for('about') }}">About</a>
+            </li>
+            {% if current_user.is_authenticated %}
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('dashboard') }}">Dashboard</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('history') }}">History</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('logout') }}">Log Out</a>
+              </li>
+            {% else %}
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('register') }}">Sign Up</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('login') }}">Log In</a>
+              </li>
+            {% endif %}
+          </ul>
+        </div>
       </div>
-      <div class="nav-bar">
-        <a href="{{url_for('index')}}">Home</a>
-        <a href="{{url_for('about')}}">About</a>
-        {% if current_user.is_authenticated %}
-        <a href="{{url_for('dashboard')}}">Dashboard</a>
-        <a href="{{url_for('history')}}">History</a>
-        <a href="{{url_for('logout')}}">Log Out</a>
-        {% else %}
-        <a href="{{url_for('register')}}">Sign Up</a>
-        <a href="{{url_for('login')}}">Log In</a>
-        {% endif %}
-      </div>
-    </header>
+    </nav>
+  </header>
+
+  <main class="container">
     {% with messages = get_flashed_messages() %} {% if messages %}
-    <div class="container">
+    <div class="alert alert-info mt-4">
       {% for message in messages %}
-      <p>{{ message }} <a href="{{request.path}}">Dismiss</a></p>
+        {{ message }} <a href="{{ request.path }}" class="alert-link">Dismiss</a>
       {% endfor %}
     </div>
     {% endif %} {% endwith %}
-    <main>{% block content %}{% endblock content %}</main>
-    <footer class="container">
-      <small class="footer">
-      
-        <script>
-          document.write(new Date().getFullYear());
-        </script>
-      </small>
-    </footer>
-  </body>
+
+    {% block content %}{% endblock content %}
+  </main>
+
+  <footer class="footer mt-auto py-3 bg-light">
+    <div class="container text-center">
+      <small>&copy; <script>document.write(new Date().getFullYear())</script> Cndnse</small>
+    </div>
+  </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+</body>
 </html>

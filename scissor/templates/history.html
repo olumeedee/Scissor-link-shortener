@@ -1,34 +1,36 @@
 {% extends 'base.html' %}
+
 {% block title %}Link History{% endblock title %}
+
 {% block content %}
 <section class="container">
-{% if urls %}
-<div class="table-wrapper">
-  <table>
-    <thead>
-        <tr>
-          <th>Short Link</th>
-          <th>Original Link</th>
-          <th>Analytics</th>
-          <th>Edit</th>
-          <th>Delete</th>
-        </tr>
-    </thead>
-    <tbody>
-      {% for url in urls %}
-        <tr>
-          <td><a href="{{ url_for('redirect_link', short_url=url.short_url) }}" target="_blank">{{host}}{{url.short_url}}</a></td>
-          <td><a href="{{ url.long_url }}" target="_blank">{{url.long_url}}</a></td>
-          <td><a href="{{ url_for('analytics', short_url=url.short_url) }}">Analytics</a></td>
-          <td><a href="{{ url_for('update', short_url=url.short_url) }}">Edit</a></td>
-          <td><a href="{{ url_for('delete', short_url=url.short_url) }}">Delete</a></td>
+  {% if urls %}
+    <div class="table-wrapper">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Short Link</th>
+            <th>Original Link</th>
+            <th>Analytics</th>
+            <th>Edit</th>
+            <th>Delete</th>
           </tr>
-        {% endfor %}
-    </tbody>
-  </table>
-</div>
-{% else %}
-<small>You do not have any links yet. <a href="{{url_for('index')}}">Create Some</a> </small>
-{% endif %}
+        </thead>
+        <tbody>
+          {% for url in urls %}
+            <tr>
+              <td><a href="{{ url_for('redirect_link', short_url=url.short_url) }}" target="_blank">{{ host }}{{ url.short_url }}</a></td>
+              <td><a href="{{ url.long_url }}" target="_blank">{{ url.long_url }}</a></td>
+              <td><a href="{{ url_for('analytics', short_url=url.short_url) }}">Analytics</a></td>
+              <td><a href="{{ url_for('update', short_url=url.short_url) }}">Edit</a></td>
+              <td><a href="{{ url_for('delete', short_url=url.short_url) }}">Delete</a></td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  {% else %}
+    <small>You do not have any links yet. <a href="{{ url_for('index') }}">Create Some</a></small>
+  {% endif %}
 </section>
 {% endblock content %}

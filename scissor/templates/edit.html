@@ -1,24 +1,26 @@
 {% extends 'base.html' %}
+
 {% block title %}Edit Link{% endblock title %}
+
 {% block content %}
-<form action="{{url_for('update', short_url=Url.short_url)}}" method="POST" class="form-container">
+<form action="{{ url_for('update', short_url=Url.short_url) }}" method="POST" class="form-container">
   <div class="form-group">
     <h3>Edit Link</h3>
   </div>
   <div class="form-group">
     <label for="long_url">Original Link</label>
-    <input type="text" name="long_url" class="form-control" value="{{Url.long_url}}" disabled/>
+    <input type="text" name="long_url" class="form-control" value="{{ Url.long_url }}" disabled/>
   </div>
   <div class="form-group">
     <label for="short_url">Old Shortened Link</label>
-    <input type="text" name="short_url" class="form-control" value="{{host}}{{Url.short_url}}" disabled/>
+    <input type="text" name="short_url" class="form-control" value="{{ host }}{{ Url.short_url }}" disabled/>
   </div>
   <div class="form-group">
     <label for="custom_url">New Back-Half</label>
-    <input type="text" class="form-control" placeholder="{{Url.short_url}}" name="custom_url" required/>
+    <input type="text" class="form-control" placeholder="{{ Url.short_url }}" name="custom_url" required/>
   </div>
   <div class="form-group">
-    <input type="submit" value="Update Link" class="button"/>
+    <input type="submit" value="Update Link" class="btn btn-primary"/>
   </div>
 </form>
 {% endblock content %}

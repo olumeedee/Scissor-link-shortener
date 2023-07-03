@@ -3,6 +3,7 @@ body {
     background: #fafafa;
     color: #333333;
     margin-top: 5rem;
+    
 
   }
   
@@ -11,7 +12,7 @@ body {
   }
   
   .bg-steel {
-    background-color: #007AF3;
+    background-color: #5da7f1;
   }
   
   .site-header .navbar-nav .nav-link {
@@ -26,6 +27,12 @@ body {
     font-weight: 500;
   }
   
+  .header-logo {
+    border: 3px solid #dddddd;
+    border-radius: 3px;
+    padding: 5px 10px 5px 10px;
+
+  }
   .content-section {
     background: #ffffff;
     padding: 10px 20px;

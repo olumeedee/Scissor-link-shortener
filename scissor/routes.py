@@ -162,17 +162,18 @@ def login():
         user = User.query.filter_by(email=email).first()
 
         if user:
+        
             if check_password_hash(user.password_hash, password):
-                login_user(user)
-                flash('You are now logged in.')
+                flash('Logged in successfully.', category='success')
+                login_user(user, remember=True)
                 return redirect(url_for('index'))
             else:
-                flash('Please provide valid credentials.')
+                flash('Please provide valid credentials.', category='error')
                 return redirect(url_for('login'))
+            
         else:
-            flash('Account not found. Please sign up to continue.')
+            flash('Account not found. Please sign up to continue.', category='error')
             return redirect(url_for('register'))
-
     return render_template('login.html', title='Login')
 
 
