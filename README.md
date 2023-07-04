@@ -3,6 +3,9 @@
  Project Description: cndnse URL Shortener
 
 cndnse URL Shortener project aims to create a robust and user-friendly service for shortening URLs. Leveraging cutting-edge technologies, the application will provide a seamless experience for users to convert long, complex URLs into concise and shareable links. Along with efficient redirection, the project will offer valuable features such as link analytics and QR code generation.
+
+---
+
 ## Key Features:
 
 URL Shortening: Users can input lengthy URLs and generate shortened versions for easy sharing and memorization.
@@ -34,6 +37,7 @@ By combining these features, the cndnse URL Shortener project aims to deliver a 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
+---
 
 
 <!-- Lessons from the Project -->
@@ -56,6 +60,7 @@ Creating this tool helped to learn and practice:
 
 <p align="right"><a href="#readme-top">back to top</a></p>
 
+---
 
 
 
@@ -108,6 +113,7 @@ Distributed under the MIT License. See <a href="https://github.com/olumeedee/Sci
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
+---
 
 
 <!-- CONTACT -->
@@ -118,6 +124,7 @@ Project Link: [https://github.com/olumeedee/Scissor-link-shortener](https://gith
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
+---
 
 
 <!-- ACKNOWLEDGMENTS -->
