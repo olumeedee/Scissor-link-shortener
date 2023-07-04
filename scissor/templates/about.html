@@ -7,24 +7,53 @@
 
 
   {% if current_user.is_authenticated %}
-  <h2 class="article-title">Welcome to Cndnse, {{ current_user.first_name }}!</h2>
+  <legend class="border-bottom mb-4">Welcome to Cndnse, {{ current_user.first_name }}!</legend>
   {% else %}
-    <h2 class="article-title">Welcome to Cndnse! </h2>
+    <legend class="border-bottom mb-4">Welcome to Cndnse! </legend>
 
     <br>
   {% endif %}
 
-  <section class="container">
-
-    <h5 class="article-title">"Brief is the new Black"</h5>
-
-  <p class="article-content">Cndnse URL Shortener project aims to create a robust and user-friendly service for shortening URLs. Leveraging cutting-edge technologies, the application will provide a seamless experience for users to convert long, complex URLs into concise and shareable links. Along with efficient redirection, the project will offer valuable features such as link analytics and QR code generation.</p>
-
-  <p class="article-content">In today's world, it's important to keep things brief</p>
-
-  <p class="article-content">So, what are you waiting for? <a href="{{ url_for('register') }}">Sign up</a> today!</p>
-</section>
-
-</main>
-</article>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6">
+        <h1>About</h1>
+        <p class="lead">
+          The cndnse URL Shortener is a powerful tool designed to make your links more manageable and user-friendly.
+        </p>
+        <p>
+          Whether you're sharing a long URL on social media, in emails, or in any other digital format, our URL shortener can simplify the process by generating shorter versions of your links.
+        </p>
+        <p>
+          Our service offers customizable URLs, allowing you to personalize your shortened links with your brand or preferred keywords. This helps enhance brand recognition and makes your links more memorable for your audience.
+        </p>
+        <p>
+          We provide comprehensive link analytics to help you gain insights into the performance of your shortened URLs. Track click-through rates, analyze geographic data, and identify referral sources to optimize your link sharing strategies.
+        </p>
+      </div>
+      <div class="col-lg-6">
+        <img src="{{ url_for('static', filename='cndnse-logo/vector/default.svg') }}" class="img-fluid" alt="About Image">
+      </div>
+    </div>
+    <div class="row mt-5">
+      <div class="col-lg-6">
+        <h2>Secure and Reliable</h2>
+        <p>
+          We prioritize the security of your data. Our application implements robust authentication mechanisms to protect your information and ensure a secure browsing experience.
+        </p>
+        <p>
+          Our service is also highly scalable, capable of handling a high volume of URL shortening requests efficiently. You can rely on our system to provide fast and reliable link shortening services.
+        </p>
+      </div>
+      <div class="col-lg-6">
+        <h2>User-Friendly Interface</h2>
+        <p>
+          Our user interface is designed with simplicity and ease of use in mind. You can navigate through the features effortlessly and manage your shortened URLs conveniently.
+        </p>
+        <p>
+          We offer user management functionalities, allowing you to register, authenticate, and access personalized features. This ensures a seamless experience and gives you control over your shortened links.
+        </p>
+      </div>
+    </div>
+  </div>
 {% endblock content %}

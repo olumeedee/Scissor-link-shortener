@@ -4,28 +4,64 @@
 
 {% block content %}
   {% if current_user.is_authenticated %}
-  <h2 class="article-title"> Welcome, {{ current_user.first_name }}! </h2>
+  <div class="container">
+    <legend class="border-bottom mb-4">Welcome, {{ current_user.first_name }}! </legend>
     <br>
-    <form action="{{ url_for('index') }}" method="POST" class="form-container">
-      <div class="mb-3">
-        <label for="long_url" class="form-label">Original URL</label>
-        <input type="url" name="long_url" class="form-control" placeholder="https://example.com/long-link" required>
-      </div>
-      <div class="mb-3">
-        <label for="custom_url" class="form-label">Custom URL (Optional)</label>
-        <input type="text" name="custom_url" class="form-control" placeholder="Example: cndnse.me/custom-url">
-      </div>
-      <div class="mb-3">
-        <input type="submit" value="Shorten url" class="btn btn-primary">
-      </div>
-    </form>
+    <fieldset class="form-group">
+      <legend class="border-bottom mb-4">Shorten a URL</legend>
+      <form action="{{ url_for('index') }}" method="POST" class="form-container">
+        <div class="mb-3">
+          <label for="long_url" class="form-label">Original URL</label>
+          <input type="url" name="long_url" class="form-control" placeholder="https://example.com/long-url" required>
+        </div>
+        <div class="mb-3">
+          <label for="custom_url" class="form-label">Custom URL (Optional)</label>
+          <input type="text" name="custom_url" class="form-control" placeholder="Example: cndnse.me/custom-url">
+        </div>
+
+        <div class="mb-3">
+          <input type="submit" value="Shorten URL" class="btn btn-primary">
+        </div>
+      </form>
+    </fieldset>
+  </div>
   {% else %}
-    <<!-- div class="logo-container">
-      <img src="{{ url_for('static', filename='cndnse-logo/vector/default-monochrome.svg') }}" alt="Logo" width="50%" class="logo">
-    </div> -->
-    <!-- <h3>...brief is the new black</h3> -->
-    <small>
-      <a href="{{ url_for('register') }}">Sign up</a> or <a href="{{ url_for('login') }}">log in</a> to shorten links for free
-    </small>
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-6 text-center">
+        <img src="{{ url_for('static', filename='cndnse-logo/vector/default.svg') }}" class="img-fluid" height="300" alt="Home Image">
+      </div>
+    </div>
+
+    <div class="row justify-content-center">
+      <div class="col-lg-8 text-center">
+        <h4 class="mt-4">Welcome to</h4>
+        <h1 class="display-4 fw-bold">cnd<span>nse</span></h1>
+        <hr>
+        <p class="lead">cndnse URL Shortener is a powerful tool designed to make your links more manageable and user-friendly.</p>
+        <hr>
+      </div>
+    </div>
+
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+        <h4 class="mt-5">Why use cndnse?</h4>
+        <p class="lead">Whether you're sharing a long URL on social media, in emails, or in any other digital format, our URL shortener can simplify the process by generating shorter versions of your links.</p>
+        <p class="lead">Our service offers customizable URLs, allowing you to personalize your shortened links with your brand or preferred keywords. This helps enhance brand recognition and makes your links more memorable for your audience.</p>
+        <p class="lead">We provide comprehensive link analytics to help you gain insights into the performance of your shortened URLs. Track click-through rates, analyze geographic data, and identify referral sources to optimize your link sharing strategies.</p>
+        <hr>
+      </div>
+    </div>
+
+    
+
+    <div class="row justify-content-center">
+      <div class="col-lg-8 text-center">
+        <small>
+          <a href="{{ url_for('register') }}">Sign up</a> or <a href="{{ url_for('login') }}">log in</a> to shorten links for free
+        </small>
+      </div>
+    </div>
+  </div>
   {% endif %}
 {% endblock content %}
