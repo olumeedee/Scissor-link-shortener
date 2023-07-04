@@ -23,6 +23,42 @@ By combining these features, the cndnse URL Shortener project aims to deliver a 
 
 --
 
+### Built With
+
+* ![Python][python]
+* ![Flask][flask]
+* ![SQLite][sqlite]
+* ![HTML5][html5]
+* ![CSS3][css3]
+* ![Jinja][jinja]
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+
+
+<!-- Lessons from the Project -->
+## Lessons Learned
+
+Creating this tool helped to learn and practice:
+* Responsive Web Design
+* URL Shortening
+* QR Code Generation
+* Rate Limiting
+* Caching
+* Debugging
+* Routing
+* Database Management
+* Internet Security
+* User Authentication
+* User Authorization
+* Message Flashing
+* Documentation
+
+<p align="right"><a href="#readme-top">back to top</a></p>
+
+
+
+
 <!-- Getting Started -->
 ## Usage
 
