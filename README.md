@@ -24,7 +24,7 @@ User Management: The system provides user registration and authentication functi
 
 By combining these features, the cndnse URL Shortener project aims to deliver a reliable, user-centric service that simplifies the sharing of URLs while providing valuable insights into their performance.
 
---
+---
 
 ### Built With
 
