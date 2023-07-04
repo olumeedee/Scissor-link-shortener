@@ -1,4 +1,4 @@
-# Scissor-link-shortener
+# Cndnse
 
  Project Description: cndnse URL Shortener
 
@@ -63,3 +63,34 @@ Python3: [Get Python](https://www.python.org/downloads/)
 <p align="right"><a href="#readme-top">back to top</a></p>
 
 ---
+
+
+<!-- LICENSE -->
+## License
+
+Distributed under the MIT License. See <a href="https://github.com/olumeedee/Scissor-link-shortener/blob/main/LICENSE">LICENSE</a> for more information.
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+
+
+<!-- CONTACT -->
+## Contact
+Olumide Gbadegesin  - olumeedee@gmail.com
+
+Project Link: [https://github.com/olumeedee/Scissor-link-shortener](https://github.com/olumeedee/Scissor-link-shortener)
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+
+
+<!-- ACKNOWLEDGMENTS -->
+## Acknowledgments
+
+* [AltSchool Africa School of Engineering](https://altschoolafrica.com/schools/engineering)
+* [Caleb Emelike's Python, Flask and Database Lessons](https://github.com/CalebEmelike)
+* [YouTube](https://www.youtube.com)
+* [Stack Overflow](https://stackoverflow.com/)
+* [Google](https://google.com)
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
