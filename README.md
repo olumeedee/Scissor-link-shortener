@@ -48,7 +48,7 @@ Python3: [Get Python](https://www.python.org/downloads/)
    ```
 2. Activate the virtual environment
    ```sh
-   source scissor/bin/activate
+   source env/Scripts/activate
    ```
 3. Install project packages
    ```sh
