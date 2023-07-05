@@ -1,12 +1,12 @@
 import unittest
-from app import app, db
+from . import app, db
 from models import User, Url
 
 class TestRoutes(unittest.TestCase):
 
     def setUp(self):
         app.config['TESTING'] = True
-        app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///:memory:'
+        app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite://'
         self.app = app.test_client()
         db.create_all()
 
